@@ -93,88 +93,90 @@
 								Table for Teams
 							</caption>
 							<thead>
-								<tr>
-									<th>Name</th>
-									<th>Team</th>
-									<th>Role</th>
-									<th>Price</th>
+								<tr style="background-color: #66bae9 ">
+									<th style="color:white ">Name</th>
+									<th style="color:white">Team</th>
+									<th style="color:white">Role</th>
+									<th style="color:white">Price</th>
 								</tr>
 							</thead>
 							<tbody>
-								<tr>
+								<tr id ="draggable1" draggable="true" ondragstart="dragStart(event);">
 									<td>Dhoni</td>
 									<td>Bangalore</td>
 									<td>560001</td>
 									<td>1 ana</td>
 
 								</tr>
-								<tr>
+								<tr id ="draggable1" draggable="true" ondragstart="dragStart(event);";>
 									<td>Dhoni</td>
 									<td>Bangalore</td>
 									<td>560001</td>
 									<td>1 ana</td>
+
 								</tr>
-								<tr>
+								<tr id ="draggable1">
 									<td>Dhoni</td>
 									<td>Bangalore</td>
 									<td>560001</td>
 									<td>1 ana</td>
+
 								</tr>
-								<tr>
+								<tr id ="draggable1">
 									<td>Dhoni</td>
 									<td>Bangalore</td>
 									<td>560001</td>
 									<td>1 ana</td>
+
 								</tr>
-								<tr>
+								<tr id ="draggable1">
 									<td>Dhoni</td>
 									<td>Bangalore</td>
 									<td>560001</td>
 									<td>1 ana</td>
+
 								</tr>
-								<tr>
+								<tr id ="draggable1">
 									<td>Dhoni</td>
 									<td>Bangalore</td>
 									<td>560001</td>
 									<td>1 ana</td>
+
 								</tr>
-								<tr>
+								<tr id ="draggable1">
 									<td>Dhoni</td>
 									<td>Bangalore</td>
 									<td>560001</td>
 									<td>1 ana</td>
+
 								</tr>
-								<tr>
+								<tr id ="draggable1">
 									<td>Dhoni</td>
 									<td>Bangalore</td>
 									<td>560001</td>
 									<td>1 ana</td>
+
 								</tr>
-								<tr>
+								<tr id ="draggable1">
 									<td>Dhoni</td>
 									<td>Bangalore</td>
 									<td>560001</td>
 									<td>1 ana</td>
-								</tr>
-								<tr>
-									<td>Dhoni</td>
-									<td>Bangalore</td>
-									<td>560001</td>
-									<td>1 ana</td>
+
 								</tr>
 							</tbody>
 						</table>
 					</div>
 				</div>
-				<div class="col-md-6">
-					<div class="thumbnail">
+				<div class="col-md-6" ondragover="dragOver(event);" ondrop="drop(event);">
+					<div class="thumbnail" id="droptarget1" >
 						<div class="btn-group" pull-right>
 							<button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
 								Team <span class="caret"></span>
 							</button>
 							<ul class="dropdown-menu" role="menu">
 								<li>
-									<a href="#">CSK</a>
+									<a href="#" onclick="some();">CSK</a>
 								</li>
 								<li>
 									<a href="#">RCB</a>
@@ -182,7 +184,7 @@
 								<li>
 									<a href="#">RR</a>
 								</li>
-							
+
 							</ul>
 						</div>
 					</div>
@@ -214,6 +216,38 @@
 
 		<!-- Bootstrap Core JavaScript -->
 		<script src="js/bootstrap.min.js"></script>
+
+		<script>
+			function dragStart(e) {
+				// Sets the operation allowed for a drag source
+				e.dataTransfer.effectAllowed = "move";
+
+				// Sets the value and type of the dragged data
+				e.dataTransfer.setData("Text", e.target.getAttribute("id"));
+			}
+
+			function dragOver(e) {
+				// Prevent the browser default handling of the data
+				e.preventDefault();
+				e.stopPropagation();
+			}
+
+			function drop(e) {
+				// Cancel this event for everyone else
+				e.stopPropagation();
+				e.preventDefault();
+
+				// Retrieve the dragged data by type
+				var data = e.dataTransfer.getData("Text");
+
+				// Append image to the drop box
+				e.target.appendChild(document.getElementById(data));
+			}
+			function some()
+			{
+				alert("hello");
+			}
+		</script>
 
 	</body>
 
