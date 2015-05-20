@@ -81,65 +81,139 @@
 		<!-- <div class="container"> -->
 		<!-- <embed src="banner/Banner 2.swf" align="left" width="800px" height="200px"> -->
 		<!-- </div> -->
-		
-		
-			<!-- Page Content -->
-					<div class="container">
+
+		<!-- Page Content -->
+		<div class="container">
+			<div class="row">
+
+				<div class="col-md-6">
+					<div class="thumbnail">
 						<table class="table table-hover">
 							<caption>
-								Hover Table Layout
+								Table for Teams
 							</caption>
 							<thead>
 								<tr>
 									<th>Name</th>
-									<th>City</th>
-									<th>Pincode</th>
+									<th>Team</th>
+									<th>Role</th>
+									<th>Price</th>
 								</tr>
 							</thead>
 							<tbody>
 								<tr>
-									<td>Tanmay</td>
+									<td>Dhoni</td>
 									<td>Bangalore</td>
 									<td>560001</td>
+									<td>1 ana</td>
+
 								</tr>
 								<tr>
-									<td>Sachin</td>
-									<td>Mumbai</td>
-									<td>400003</td>
+									<td>Dhoni</td>
+									<td>Bangalore</td>
+									<td>560001</td>
+									<td>1 ana</td>
 								</tr>
 								<tr>
-									<td>Uma</td>
-									<td>Pune</td>
-									<td>411027</td>
+									<td>Dhoni</td>
+									<td>Bangalore</td>
+									<td>560001</td>
+									<td>1 ana</td>
+								</tr>
+								<tr>
+									<td>Dhoni</td>
+									<td>Bangalore</td>
+									<td>560001</td>
+									<td>1 ana</td>
+								</tr>
+								<tr>
+									<td>Dhoni</td>
+									<td>Bangalore</td>
+									<td>560001</td>
+									<td>1 ana</td>
+								</tr>
+								<tr>
+									<td>Dhoni</td>
+									<td>Bangalore</td>
+									<td>560001</td>
+									<td>1 ana</td>
+								</tr>
+								<tr>
+									<td>Dhoni</td>
+									<td>Bangalore</td>
+									<td>560001</td>
+									<td>1 ana</td>
+								</tr>
+								<tr>
+									<td>Dhoni</td>
+									<td>Bangalore</td>
+									<td>560001</td>
+									<td>1 ana</td>
+								</tr>
+								<tr>
+									<td>Dhoni</td>
+									<td>Bangalore</td>
+									<td>560001</td>
+									<td>1 ana</td>
+								</tr>
+								<tr>
+									<td>Dhoni</td>
+									<td>Bangalore</td>
+									<td>560001</td>
+									<td>1 ana</td>
 								</tr>
 							</tbody>
 						</table>
 					</div>
-					<!-- /.container -->
-
-					<div class="container">
-
-						<hr>
-
-						<!-- Footer -->
-						<footer>
-							<div class="row">
-								<div class="col-lg-12">
-									<p>
-										Copyright &copy; Your Website 2014
-									</p>
-								</div>
-							</div>
-						</footer>
-
+				</div>
+				<div class="col-md-6">
+					<div class="thumbnail">
+						<div class="btn-group" pull-right>
+							<button type="button" class="btn btn-success dropdown-toggle" data-toggle="dropdown" aria-expanded="false">
+								Team <span class="caret"></span>
+							</button>
+							<ul class="dropdown-menu" role="menu">
+								<li>
+									<a href="#">CSK</a>
+								</li>
+								<li>
+									<a href="#">RCB</a>
+								</li>
+								<li>
+									<a href="#">RR</a>
+								</li>
+							
+							</ul>
+						</div>
 					</div>
-					<!-- /.container -->
+				</div>
+			</div>
+		</div>
+		<!-- /.container -->
 
-					<!-- jQuery -->
-					<script src="js/jquery.js"></script>
+		<div class="container">
 
-					<!-- Bootstrap Core JavaScript -->
-					<script src="js/bootstrap.min.js"></script>
+			<hr>
+
+			<!-- Footer -->
+			<footer>
+				<div class="row">
+					<div class="col-lg-12">
+						<p>
+							Copyright &copy; Your Website 2014
+						</p>
+					</div>
+				</div>
+			</footer>
+
+		</div>
+		<!-- /.container -->
+
+		<!-- jQuery -->
+		<script src="js/jquery.js"></script>
+
+		<!-- Bootstrap Core JavaScript -->
+		<script src="js/bootstrap.min.js"></script>
 
 	</body>
 
