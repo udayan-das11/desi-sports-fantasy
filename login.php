@@ -13,6 +13,11 @@ if($_POST)
 		$_SESSION['username']=$_POST['email'];
 		header('Location: mainLandingPage.php');
 	}
+	
+	if (isset($_POST['signUP']))
+	{
+		header('Location: signUp.php');
+	}
 }
 
 ?>
@@ -71,6 +76,7 @@ if($_POST)
     </label>
   </div> -->
   <button type="submit" class="btn btn-default">Submit</button>
+  <button type="submit" class="btn btn-default" name ="signUP" id="signUP">Sign Up</button>
 </form>
 </div> <!-- END Panel body -->
 
