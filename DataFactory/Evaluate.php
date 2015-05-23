@@ -43,9 +43,8 @@ function EvaluateMatchScore($Players,$MatchEval) {
 	include ('/CRUD_Match_Tables.php');
 	
 	#InsertPlayerScores($Players);
-	$last_Match_id = InsertMatchDetails($MatchEval);
-	echo $last_Match_id;
-	InsertMatchHistoryDetails($last_Match_id);
+	InsertMatchDetails($MatchEval);
+	InsertMatchHistoryDetails();
 	
 	
 	

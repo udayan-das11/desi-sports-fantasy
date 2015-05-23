@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 23, 2015 at 08:06 PM
+-- Generation Time: May 24, 2015 at 12:13 AM
 -- Server version: 5.6.24
 -- PHP Version: 5.6.8
 
@@ -23,28 +23,6 @@ SET time_zone = "+00:00";
 -- --------------------------------------------------------
 
 --
--- Table structure for table `cds`
---
-
-CREATE TABLE IF NOT EXISTS `cds` (
-  `titel` varchar(200) COLLATE latin1_general_ci DEFAULT NULL,
-  `interpret` varchar(200) COLLATE latin1_general_ci DEFAULT NULL,
-  `jahr` int(11) DEFAULT NULL,
-  `id` bigint(20) unsigned NOT NULL
-) ENGINE=MyISAM AUTO_INCREMENT=7 DEFAULT CHARSET=latin1 COLLATE=latin1_general_ci;
-
---
--- Dumping data for table `cds`
---
-
-INSERT INTO `cds` (`titel`, `interpret`, `jahr`, `id`) VALUES
-('Beauty', 'Ryuichi Sakamoto', 1990, 1),
-('Goodbye Country (Hello Nightclub)', 'Groove Armada', 2001, 4),
-('Glee', 'Bran Van 3000', 1997, 5);
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `matches`
 --
 
@@ -53,18 +31,28 @@ CREATE TABLE IF NOT EXISTS `matches` (
   `Team1` varchar(10) NOT NULL,
   `Team2` varchar(10) NOT NULL,
   `Date` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=25 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `matches`
 --
 
 INSERT INTO `matches` (`MatchId`, `Team1`, `Team2`, `Date`) VALUES
-(1, '0', '0', '2013-05-01 11:00:00'),
-(2, '0', '0', '2013-05-01 11:00:00'),
-(3, '0', '0', '2013-05-01 11:00:00'),
-(4, '0', '0', '2013-05-01 11:00:00'),
-(5, '0', '0', '2013-05-01 11:00:00');
+(10, 'RR', 'CSK', '2013-05-01 11:00:00'),
+(11, 'RR', 'CSK', '2013-05-01 11:00:00'),
+(12, 'RR', 'CSK', '2013-05-01 11:00:00'),
+(13, 'RR', 'CSK', '2013-05-01 11:00:00'),
+(14, 'RR', 'CSK', '2013-05-01 11:00:00'),
+(15, 'RR', 'CSK', '2013-05-01 11:00:00'),
+(16, 'RR', 'CSK', '2013-05-01 11:00:00'),
+(17, 'RR', 'CSK', '2013-05-01 11:00:00'),
+(18, 'RR', 'CSK', '2013-05-01 11:00:00'),
+(19, 'RR', 'CSK', '2013-05-01 11:00:00'),
+(20, 'RR', 'CSK', '2013-05-01 11:00:00'),
+(21, 'RR', 'CSK', '2013-05-01 11:00:00'),
+(22, 'RR', 'CSK', '2013-05-01 11:00:00'),
+(23, 'RR', 'CSK', '2013-05-01 11:00:00'),
+(24, 'RR', 'CSK', '2013-05-01 11:00:00');
 
 -- --------------------------------------------------------
 
@@ -195,7 +183,7 @@ CREATE TABLE IF NOT EXISTS `score` (
 INSERT INTO `score` (`PlayerId`, `RunScored`, `SixHit`, `FourHit`, `Duck`, `BallFaced`, `BallsBowled`, `Wkt`, `MaidenOver`, `RunsConceded`, `Catches`, `Stumps`, `RunOut`, `ManofMatch`, `PlayerScore`) VALUES
 (1, 50, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 100),
 (2, 40, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 0, 80),
-(3, 40, 4, 1, 0, 20, 0, 0, 0, 0, 0, 0, 0, 0, 0);
+(3, 40, 4, 1, 0, 20, 0, 0, 0, 0, 0, 0, 0, 0, 200);
 
 -- --------------------------------------------------------
 
@@ -252,19 +240,13 @@ CREATE TABLE IF NOT EXISTS `users` (
 --
 
 INSERT INTO `users` (`user_id`, `username`, `email`, `password`, `user_team`) VALUES
-(1, '', 'simplydigvijay20@gmail.com', '591fb23d3f51377541d1038104bf25e09d39d5b2', '1;2;3;4;5;6;7;8;9;10;11'),
-(2, '', 'raj@inamdar.com', '591fb23d3f51377541d1038104bf25e09d39d5b2', '1;2;3;4;5;6;7;8;9;10;11'),
-(3, '', 'ajit@singh.com', '591fb23d3f51377541d1038104bf25e09d39d5b2', '1;2;3;4;5;6;7;8;9;10;12');
+(1, '', 'simplydigvijay20@gmail.com', '591fb23d3f51377541d1038104bf25e09d39d5b2', '1;2;3'),
+(2, '', 'raj@inamdar.com', '591fb23d3f51377541d1038104bf25e09d39d5b2', '1;2'),
+(3, '', 'ajit@singh.com', '591fb23d3f51377541d1038104bf25e09d39d5b2', '1;3');
 
 --
 -- Indexes for dumped tables
 --
-
---
--- Indexes for table `cds`
---
-ALTER TABLE `cds`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `matches`
@@ -295,15 +277,10 @@ ALTER TABLE `users`
 --
 
 --
--- AUTO_INCREMENT for table `cds`
---
-ALTER TABLE `cds`
-  MODIFY `id` bigint(20) unsigned NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=7;
---
 -- AUTO_INCREMENT for table `matches`
 --
 ALTER TABLE `matches`
-  MODIFY `MatchId` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+  MODIFY `MatchId` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=25;
 --
 -- AUTO_INCREMENT for table `pages`
 --
