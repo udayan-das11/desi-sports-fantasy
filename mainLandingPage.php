@@ -86,6 +86,11 @@ include ('config/setup.php') ;
 		<!-- <div class="container"> -->
 		<!-- <embed src="banner/Banner 2.swf" align="left" width="800px" height="200px"> -->
 		<!-- </div> -->
+		<form action="mainLandingPage.php" method="post" role="form">
+		<div class="text-right">
+			<input type="button" id="EvaluateMatch" class="btn btn-info" value="Evaluate Match 1" onclick=""/>
+		</div>
+		</form>
 		<div class="container">
 			<p class="lead">
 				My Team
@@ -95,11 +100,13 @@ include ('config/setup.php') ;
 
 			<div id="img_cont">
 	<?php
+			include ('config/connection.php');
 			$myPlayers = explode(";", $user["user_team"]);
-			foreach ($myPlayers as &$value) {
+			foreach ($myPlayers as $value) {
 			$myQuery ="SELECT * FROM players where ID=".$value;
 			$myRow = mysqli_query($dbc, $myQuery);
 			$myPlayerData= mysqli_fetch_assoc($myRow);
+			echo $value;
         	echo "<img src=\"images/".$value.".png\">";
     		}            
 			?>  
@@ -243,7 +250,26 @@ include ('config/setup.php') ;
 
 					<!-- Bootstrap Core JavaScript -->
 					<script src="js/bootstrap.min.js"></script>
+	
+	<script type="text/javascript">
+		$(document).ready(function() {
+			$('#EvaluateMatch').click(function(){EvaluateScore();}); 
+		});
+	        
+	     function EvaluateScore(){
 
+	    	 jQuery.ajax({
+	    	        type: "POST",
+	    	        url: 'DataFactory/Evaluate.php',
+	    	        data: {functionname: 'EvaluateScore', arguments: []}, 
+	    	         success:function(data) {
+	    	        alert(data); 
+	    	         }
+	    	    });
+	     }
+     
+    </script>
+	
 	</body>
 
 </html>
