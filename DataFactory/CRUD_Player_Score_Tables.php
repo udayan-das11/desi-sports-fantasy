@@ -52,4 +52,28 @@ function InsertPlayerScores($Players){
 		else echo "Updated {$stmt->affected_rows} rows";
 	}
 }
+
+function getTeamPlayers($Team){
+	include ('/PlayerObject.php');
+	include ('../config/connection.php');
+	$sql = "SELECT id, Player_Name, Team, Role, Price, Category FROM players where Team = '" .$Team ."'";
+	$result = mysqli_query($dbc,$sql);
+	$TeamPlayers = array();
+	if ($result->num_rows > 0) {
+		// output data of each row
+		while($row = $result->fetch_assoc()) {
+			$myTeamPlayer = new Player();
+			$myTeamPlayer->setPlayerId($row["id"]);
+			$myTeamPlayer->setPlayerName($row["Player_Name"]);
+			$myTeamPlayer->setTeam($row["Team"]);
+			$myTeamPlayer->setRole($row["Role"]);
+			$myTeamPlayer->setPrice($row["Price"]);
+			$myTeamPlayer->setCategory($row["Category"]);
+			array_push($TeamPlayers,$myTeamPlayer);
+		}
+	} else {
+		echo "0 results";
+	}
+	return $TeamPlayers;
+}
 ?>

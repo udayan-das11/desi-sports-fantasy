@@ -11,18 +11,22 @@ switch($_POST["functionname"]){
 }
 
 function Test(){
-	echo 'Hello Test';
+	include ('/CRUD_Player_Score_Tables.php');
+	$TeamPlayers = getTeamPlayers("CSK");
+	print_r($TeamPlayers);
 }
 function EvaluateScoreInit(){
 	echo 'Inside PLAYER INIT ';
 	include ('/PlayerObject.php');
 	include ('/MatchObject.php');
 	
-	$Player1 = new Player(1);
-	$Player1->setRunsScored(50);
+	$Player1 = new Player();
+	$Player1->setPlayerId(1);
+	$Player1->setRunsScored(150);
 	
-	$Player2 = new Player(2);
-	$Player2->setRunsScored(40);
+	$Player2 = new Player();
+	$Player2->setPlayerId(2);
+	$Player2->setRunsScored(140);
 	
 	$Players = array($Player1,$Player2);
 	
@@ -42,12 +46,9 @@ function EvaluateMatchScore($Players,$MatchEval) {
 	include ('/CRUD_Player_Score_Tables.php');
 	include ('/CRUD_Match_Tables.php');
 	
-	#InsertPlayerScores($Players);
+	InsertPlayerScores($Players);
 	InsertMatchDetails($MatchEval);
 	InsertMatchHistoryDetails();
-	
-	
-	
 }
 
 

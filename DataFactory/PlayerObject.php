@@ -24,13 +24,12 @@
 		private $Price;
 		private $Category;
 		
-			
-		function Player($PlayerId) {
-			$this->PlayerId  = $PlayerId;
-		}
-		
 		public function getPlayerId() {
 			return $this->PlayerId;
+		}
+		
+		function setPlayerId($PlayerId) {
+			$this->PlayerId  = $PlayerId;
 		}
 		
 		public function getRunsScored() {

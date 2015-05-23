@@ -52,7 +52,7 @@ function InsertMatchHistoryDetails(){
 	#Insert User History Details for each user
 	$user_result = mysqli_query($dbc,"SELECT user_id, user_team FROM users");
 	
-	if ($user_result->num_rows > 1) {
+	if ($user_result->num_rows > 0) {
 		while($row = $user_result->fetch_assoc()) {
 			$UserId = $row["user_id"];
 			$UserTeam = $row["user_team"];
