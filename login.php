@@ -18,6 +18,11 @@ if($_POST)
 	{
 		header('Location: signUp.php');
 	}
+	
+	if (isset($_POST['Facebook']))
+	{
+		header('Location: config/fbconfig.php');
+	}
 }
 
 ?>
@@ -77,6 +82,7 @@ if($_POST)
   </div> -->
   <button type="submit" class="btn btn-default">Submit</button>
   <button type="submit" class="btn btn-default" name ="signUP" id="signUP">Sign Up</button>
+  <button type="submit" class="btn btn-default" name ="Facebook" id="signUP">Facebook</button>
 </form>
 </div> <!-- END Panel body -->
 

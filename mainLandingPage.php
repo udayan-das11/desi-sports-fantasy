@@ -66,7 +66,9 @@ include ('config/setup.php') ;
 						<li class="dropdown">
 							<a class="dropdown-toggle"
 							data-toggle="dropdown"
-							href="#"> <?php  echo $user["username"] ?><b class="caret"></b> </a>
+							href="#"> <?php  
+							echo $_SESSION["username"] ?>
+							<b class="caret"></b> </a>
 							<ul class="dropdown-menu">
 								<li>
 									<a href="logout.php">Logout</a>
