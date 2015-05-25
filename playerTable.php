@@ -1,4 +1,8 @@
 <!DOCTYPE html>
+<?php 
+include ('config/connectivitySignup.php');
+
+?>
 <html lang="en">
 
 	<head>
@@ -88,7 +92,7 @@
 
 				<div class="col-md-6">
 					<div class="thumbnail">
-						<table class="table table-hover">
+						<table id="myPlayerTable" class="table table-hover">
 							<caption>
 								Table for Teams
 							</caption>
@@ -101,69 +105,19 @@
 								</tr>
 							</thead>
 							<tbody>
-								<tr id ="draggable1" draggable="true" ondragstart="dragStart(event);">
-									<td>Dhoni</td>
-									<td>Bangalore</td>
-									<td>560001</td>
-									<td>1 ana</td>
-
-								</tr>
-								<tr id ="draggable1" draggable="true" ondragstart="dragStart(event);";>
-									<td>Dhoni</td>
-									<td>Bangalore</td>
-									<td>560001</td>
-									<td>1 ana</td>
-
-								</tr>
-								<tr id ="draggable1">
-									<td>Dhoni</td>
-									<td>Bangalore</td>
-									<td>560001</td>
-									<td>1 ana</td>
-
-								</tr>
-								<tr id ="draggable1">
-									<td>Dhoni</td>
-									<td>Bangalore</td>
-									<td>560001</td>
-									<td>1 ana</td>
-
-								</tr>
-								<tr id ="draggable1">
-									<td>Dhoni</td>
-									<td>Bangalore</td>
-									<td>560001</td>
-									<td>1 ana</td>
-
-								</tr>
-								<tr id ="draggable1">
-									<td>Dhoni</td>
-									<td>Bangalore</td>
-									<td>560001</td>
-									<td>1 ana</td>
-
-								</tr>
-								<tr id ="draggable1">
-									<td>Dhoni</td>
-									<td>Bangalore</td>
-									<td>560001</td>
-									<td>1 ana</td>
-
-								</tr>
-								<tr id ="draggable1">
-									<td>Dhoni</td>
-									<td>Bangalore</td>
-									<td>560001</td>
-									<td>1 ana</td>
-
-								</tr>
-								<tr id ="draggable1">
-									<td>Dhoni</td>
-									<td>Bangalore</td>
-									<td>560001</td>
-									<td>1 ana</td>
-
-								</tr>
+							<?php   	
+							$myQuery = mysql_query("SELECT * FROM players") or die(mysql_error());
+							while($rowPlayer = mysql_fetch_array($myQuery)) {
+							echo "
+								<tr id =\"draggable1\" draggable=\"true\" ondragstart=\"dragStart(event);\">
+									<td>".$rowPlayer['Player_Name']."</td>
+									<td>".$rowPlayer['Team']."</td>
+									<td>".$rowPlayer['Role']."</td>
+									<td>".$rowPlayer['PRICE']."</td>
+								</tr>";				
+							}
+							
+							?>
 							</tbody>
 						</table>
 					</div>
@@ -176,13 +130,13 @@
 							</button>
 							<ul class="dropdown-menu" role="menu">
 								<li>
-									<a href="#" onclick="some();">CSK</a>
+									<a href="#" onclick="some(event,'CSK');">CSK</a>
 								</li>
 								<li>
-									<a href="#">RCB</a>
+									<a href="#" onclick="some(event,'DD');">DD</a>
 								</li>
 								<li>
-									<a href="#">RR</a>
+									<a href="#" onclick="some(event,'KKR');">KKR</a>
 								</li>
 
 							</ul>
@@ -243,9 +197,61 @@
 				// Append image to the drop box
 				e.target.appendChild(document.getElementById(data));
 			}
-			function some()
+			
+			
+			function some(e,team)
 			{
-				alert("hello");
+				e.stopPropagation();
+				e.preventDefault();
+				
+				var elmtTable = document.getElementById('myPlayerTable');
+				var rowCount = elmtTable.rows.length; 
+				while(--rowCount) elmtTable.deleteRow(rowCount);	
+				
+				        $.ajax({
+			            type: 'post',
+			            url: 'config/teamSelector.php',
+			            data: {'team':team},
+			            success: function (msg) {
+						   msg = msg.replace("[","");
+			               msg = msg.replace("]","");
+						   msg = msg.replace(/["']/g,"");
+						   var myArray = msg.split(",");
+						   
+						   var tableRef = document.getElementById('myPlayerTable').getElementsByTagName('tbody')[0];
+						   
+				  // Insert a row in the table at row index 0
+								for (i = 0; i < myArray.length; i++) { 
+										
+								    	var newRow   = tableRef.insertRow(tableRef.rows.length);
+										var res = myArray[i].split("|");
+										newRow.setAttribute("id",res[2]);
+										newRow.setAttribute("draggable","true");
+										newRow.setAttribute("ondragstart","dragStart(event)");
+										  // Insert a cell in the row at index 0
+										var newCell  = newRow.insertCell(0);
+										var newCell1  = newRow.insertCell(1);
+										var newCell2  = newRow.insertCell(2);
+										var newCell3  = newRow.insertCell(3);
+										  // Append a text node to the cell
+										var newText  = document.createTextNode(res[0])
+										newCell.appendChild(newText);
+										var newText1  = document.createTextNode(res[1])
+										newCell1.appendChild(newText1);
+										var newText2  = document.createTextNode(res[3])
+										newCell2.appendChild(newText2);
+										var newText3  = document.createTextNode(res[4])
+										newCell3.appendChild(newText3);
+								}  
+			            }
+			        });
+				
+				
+	/*			$.post('config/teamSelector.php',function(data){
+				    var res = $.parseJSON(data);
+				    alert(res.result);
+				});  */
+
 			}
 		</script>
 
