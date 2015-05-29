@@ -1,6 +1,6 @@
 <?php
 // set up file
-session_start();
+//session_start();
  # Database Connection :
  include('config/connection.php');
  # Constants:

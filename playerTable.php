@@ -68,7 +68,7 @@ include ('config/connectivitySignup.php');
 							href="#"> User Details <b class="caret"></b> </a>
 							<ul class="dropdown-menu">
 								<li>
-									<a href="#">Logout</a>
+									<a href="logout.php">Logout</a>
 								</li>
 								<li>
 									<a href="#">History</a>

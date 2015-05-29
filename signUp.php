@@ -19,7 +19,7 @@
 		<form role="form">
 			<h2>Please Sign Up <small>It's free and always will be.</small></h2>
 			<hr class="colorgraph">
-			<div class="row">
+			<!--div class="row">
 				<div class="col-xs-12 col-sm-6 col-md-6">
 					<div class="form-group">
                         <input type="text" name="name" id="first_name" class="form-control input-lg" placeholder="First Name" tabindex="1">
@@ -30,9 +30,9 @@
 						<input type="text" name="last_name" id="last_name" class="form-control input-lg" placeholder="Last Name" tabindex="2">
 					</div>
 				</div>
-			</div>
+			</div-->
 			<div class="form-group">
-				<input type="text" name="user" id="user" class="form-control input-lg" placeholder="Display Name" tabindex="3">
+				<input type="text" name="user" id="user" class="form-control input-lg" placeholder="UserName" tabindex="3">
 			</div>
 			<div class="form-group">
 				<input type="email" name="email" id="email" class="form-control input-lg" placeholder="Email Address" tabindex="4">
@@ -55,7 +55,7 @@
 					<span class="button-checkbox">
 						
 						<button type="button" class="btn" data-color="info" tabindex="7">I Agree</button>
-                        <input type="checkbox" name="t_and_c" id="t_and_c" class="hidden" value="1">
+                        <input type="checkbox" name="t_and_c" id="t_and_c"  value="1">
 					</span>
 				</div>
 				<div class="col-xs-8 col-sm-9 col-md-9">
