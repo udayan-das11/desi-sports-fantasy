@@ -3,7 +3,7 @@
 -- http://www.phpmyadmin.net
 --
 -- Host: 127.0.0.1
--- Generation Time: May 24, 2015 at 12:13 AM
+-- Generation Time: May 29, 2015 at 02:33 PM
 -- Server version: 5.6.24
 -- PHP Version: 5.6.8
 
@@ -53,30 +53,6 @@ INSERT INTO `matches` (`MatchId`, `Team1`, `Team2`, `Date`) VALUES
 (22, 'RR', 'CSK', '2013-05-01 11:00:00'),
 (23, 'RR', 'CSK', '2013-05-01 11:00:00'),
 (24, 'RR', 'CSK', '2013-05-01 11:00:00');
-
--- --------------------------------------------------------
-
---
--- Table structure for table `pages`
---
-
-CREATE TABLE IF NOT EXISTS `pages` (
-  `id` mediumint(9) NOT NULL,
-  `user` mediumint(9) NOT NULL,
-  `slug` varchar(300) NOT NULL,
-  `label` varchar(100) NOT NULL,
-  `title` varchar(200) NOT NULL,
-  `header` varchar(300) NOT NULL,
-  `body` longtext NOT NULL
-) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `pages`
---
-
-INSERT INTO `pages` (`id`, `user`, `slug`, `label`, `title`, `header`, `body`) VALUES
-(1, 1, 'home', 'Home', 'Home Page', 'Welcome to Homepage', '<img style ="float:right; width:320px;height:240px;margin-left:10px;"src = "images/0038.jpg">\r\nThis is home page .'),
-(2, 2, 'about-us', 'About', 'About Us', 'About Homepage', 'This will tell you about homepage ');
 
 -- --------------------------------------------------------
 
@@ -188,25 +164,6 @@ INSERT INTO `score` (`PlayerId`, `RunScored`, `SixHit`, `FourHit`, `Duck`, `Ball
 -- --------------------------------------------------------
 
 --
--- Table structure for table `settings`
---
-
-CREATE TABLE IF NOT EXISTS `settings` (
-  `id` varchar(200) NOT NULL,
-  `label` varchar(200) NOT NULL,
-  `value` longtext NOT NULL
-) ENGINE=InnoDB DEFAULT CHARSET=latin1;
-
---
--- Dumping data for table `settings`
---
-
-INSERT INTO `settings` (`id`, `label`, `value`) VALUES
-('debug-status', 'Debug Status', '1');
-
--- --------------------------------------------------------
-
---
 -- Table structure for table `test`
 --
 
@@ -233,16 +190,17 @@ CREATE TABLE IF NOT EXISTS `users` (
   `email` varchar(300) NOT NULL,
   `password` varchar(200) NOT NULL,
   `user_team` varchar(200) NOT NULL DEFAULT '0'
-) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `users`
 --
 
 INSERT INTO `users` (`user_id`, `username`, `email`, `password`, `user_team`) VALUES
-(1, '', 'simplydigvijay20@gmail.com', '591fb23d3f51377541d1038104bf25e09d39d5b2', '1;2;3'),
-(2, '', 'raj@inamdar.com', '591fb23d3f51377541d1038104bf25e09d39d5b2', '1;2'),
-(3, '', 'ajit@singh.com', '591fb23d3f51377541d1038104bf25e09d39d5b2', '1;3');
+(1, 'Digvijay ', 'simplydigvijay20@gmail.com', '591fb23d3f51377541d1038104bf25e09d39d5b2', '1;2;3;4;5;6;7;8;9;10;11'),
+(2, 'Raj', 'raj@inamdar.com', '591fb23d3f51377541d1038104bf25e09d39d5b2', '1;2;13;14;15;16;17;18;19;20;21'),
+(3, 'Ajit', 'ajit@singh.com', '591fb23d3f51377541d1038104bf25e09d39d5b2', '1;3;7;9;10;11;12;13;14;15;16'),
+(4, 'udayan', 'udayan.das@gmail.com', '42db8fd572393bed6d65ca730dfd387b42d5cfca', '0');
 
 --
 -- Indexes for dumped tables
@@ -253,18 +211,6 @@ INSERT INTO `users` (`user_id`, `username`, `email`, `password`, `user_team`) VA
 --
 ALTER TABLE `matches`
   ADD PRIMARY KEY (`MatchId`);
-
---
--- Indexes for table `pages`
---
-ALTER TABLE `pages`
-  ADD PRIMARY KEY (`id`), ADD KEY `user` (`user`);
-
---
--- Indexes for table `settings`
---
-ALTER TABLE `settings`
-  ADD PRIMARY KEY (`id`);
 
 --
 -- Indexes for table `users`
@@ -282,15 +228,10 @@ ALTER TABLE `users`
 ALTER TABLE `matches`
   MODIFY `MatchId` int(10) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=25;
 --
--- AUTO_INCREMENT for table `pages`
---
-ALTER TABLE `pages`
-  MODIFY `id` mediumint(9) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=3;
---
 -- AUTO_INCREMENT for table `users`
 --
 ALTER TABLE `users`
-  MODIFY `user_id` mediumint(9) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=4;
+  MODIFY `user_id` mediumint(9) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;
